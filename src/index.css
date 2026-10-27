@@ -1,0 +1,1313 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Playfair+Display:wght@400;500;600&display=swap");
+@import "tailwindcss";
+
+:root {
+  --navy: #1b1e4a;
+  --deep-blue: #304166;
+  --culturum-blue: #2759cd;
+  --soft-blue: #bdd1ff;
+  --ice-white: #eef4ff;
+  --coral: #ee4932;
+  --cream: #f4debf;
+  --hero-navy: #041c38;
+  --ornament-height: clamp(55px, 5.4vw, 90px);
+  --ink: var(--ice-white);
+  --green: var(--navy);
+  --green-deep: #111535;
+  --pink: var(--coral);
+  --paper: var(--ice-white);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@layer base {
+  body {
+    margin: 0;
+    background-color: var(--hero-navy);
+    background-image:
+      radial-gradient(ellipse at 50% 50%, rgba(20, 68, 120, 0.38) 0%, rgba(4, 28, 56, 0.92) 75%, #021226 100%),
+      url("/assets/culturum-blue-cutting-mat.png");
+    background-size: cover, 500px 500px;
+    background-position: center, 0 0;
+    background-repeat: no-repeat, repeat;
+    background-attachment: fixed, fixed;
+    color: var(--ink);
+    font-family: "Montserrat", Arial, sans-serif;
+  }
+
+  button,
+  input {
+    font: inherit;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+* {
+  scrollbar-color: var(--pink) rgba(255, 255, 255, 0.25);
+  scrollbar-width: thin;
+}
+
+main {
+  min-height: 100vh;
+  overflow: hidden;
+  background: transparent;
+}
+
+.tile-border,
+.scroll-tile-border-container {
+  position: relative;
+  z-index: 4;
+  height: var(--ornament-height);
+  flex: 0 0 var(--ornament-height);
+  width: 100%;
+  overflow: hidden;
+  background-color: var(--hero-navy);
+  pointer-events: none;
+  user-select: none;
+}
+
+.scroll-tile-track {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: max-content;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+}
+
+.scroll-tile-sequence {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  flex-shrink: 0;
+}
+
+.scroll-tile-item {
+  height: 100%;
+  flex-shrink: 0;
+  position: relative;
+  display: block;
+}
+
+.scroll-tile-img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  display: block;
+  pointer-events: none;
+}
+
+.hero {
+  position: relative;
+  height: calc(100svh - var(--ornament-height) - var(--ornament-height));
+  padding: 54px 4vw 58px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-inline: 1px solid rgba(135, 185, 235, 0.32);
+  background: transparent;
+  isolation: isolate;
+}
+
+.hero-distress-layer {
+  display: none; /* Deactivated harsh white scratches so the velvety cutting-mat texture shines */
+}
+
+.hero::before {
+  display: none; /* Replaced artificial TV static noise with organic paper tooth baked into the cutting mat */
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0 3%;
+  z-index: 0;
+  border-inline: 1px solid rgba(135, 185, 235, 0.28);
+  pointer-events: none;
+}
+
+.nav {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  z-index: 2;
+  display: flex;
+  width: min(880px, 76vw);
+  gap: clamp(18px, 3vw, 38px);
+  transform: translateX(-50%);
+}
+
+.nav a {
+  min-width: 0;
+  flex: 1;
+  padding: 15px 24px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 34px;
+  border: 2px solid var(--cream);
+  border-radius: 999px;
+  background: rgba(4, 32, 64, 0.78);
+  box-shadow: inset 0 0 0 1px rgba(244, 223, 184, 0.28);
+  color: var(--cream);
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-align: center;
+  white-space: nowrap;
+  transition: color 180ms ease, background 180ms ease, border-color 180ms ease, transform 180ms ease;
+}
+
+.nav a i {
+  width: 13px;
+  height: 13px;
+  flex: 0 0 13px;
+  display: block;
+  background: var(--cream);
+  clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%);
+  transition: background 180ms ease, transform 180ms ease;
+}
+
+.nav a:hover {
+  transform: translateY(-2px);
+  border-color: var(--soft-blue);
+  background: var(--deep-blue);
+  color: var(--ice-white);
+}
+
+.nav a:hover i,
+.nav a:focus-visible i {
+  background: var(--coral);
+  transform: rotate(45deg) scale(1.12);
+}
+
+.nav a:focus-visible {
+  outline: 3px solid var(--soft-blue);
+  outline-offset: 4px;
+}
+
+/* ========================================================
+   CULTURUM MODULAR LETTER-BY-LETTER WORDMARK
+   Inspired by Illustrated Typography (nealenadar reference)
+   ======================================================== */
+
+.culturum-flow-wordmark {
+  width: min(67.2vw, 1280px);
+  margin: 36px auto 0;
+  position: relative;
+  isolation: isolate;
+}
+
+.wordmark-canvas-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1123 / 252;
+  margin: 0;
+  padding: 0;
+}
+
+.letter-module {
+  position: absolute;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 420ms cubic-bezier(0.16, 1, 0.3, 1), filter 420ms cubic-bezier(0.16, 1, 0.3, 1);
+  transform-origin: center bottom;
+  will-change: transform, filter;
+}
+
+.letter-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  pointer-events: none;
+  transition: opacity 380ms ease, transform 380ms cubic-bezier(0.16, 1, 0.3, 1), filter 380ms ease;
+}
+
+/* Default Stone Textured Letter */
+.letter-stone {
+  opacity: 1;
+  filter: drop-shadow(0 6px 14px rgba(4, 5, 22, 0.18));
+}
+
+/* Illustrated Art Letter (Seamlessly masked & painted inside letter contour) */
+.letter-art {
+  opacity: 0;
+}
+
+/* CLEAN ANIME/MANGA ARTWORK LETTER HOVER: SMOOTH LIFT, 100% UNBROKEN DRAWING LINE */
+.letter-module.has-flow:hover,
+.letter-module.has-flow.is-bloomed {
+  z-index: 30;
+  transform: translateY(-4px) scale(1.015);
+}
+
+.letter-module.has-flow:hover .letter-art,
+.letter-module.has-flow.is-bloomed .letter-art {
+  opacity: 1;
+  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.42));
+}
+
+.letter-module.has-flow:hover .letter-stone,
+.letter-module.has-flow.is-bloomed .letter-stone {
+  opacity: 0;
+}
+
+.letter-module:focus-visible {
+  outline: 2px solid var(--soft-blue);
+  outline-offset: 4px;
+  border-radius: 8px;
+}
+
+.discipline {
+  width: min(780px, 76vw);
+  margin: clamp(28px, 3.4vh, 42px) auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(14px, 1.6vw, 24px);
+  color: var(--cream);
+  user-select: none;
+  pointer-events: none;
+}
+
+.discipline-line {
+  flex: 1 1 0;
+  height: 1px;
+  min-width: 32px;
+}
+
+.discipline-line.left {
+  background: linear-gradient(90deg, transparent 0%, rgba(244, 222, 191, 0.25) 30%, rgba(244, 222, 191, 0.75) 100%);
+}
+
+.discipline-line.right {
+  background: linear-gradient(90deg, rgba(244, 222, 191, 0.75) 0%, rgba(244, 222, 191, 0.25) 70%, transparent 100%);
+}
+
+.discipline-star {
+  width: 9px;
+  height: 9px;
+  flex: 0 0 9px;
+  display: block;
+  background: var(--cream);
+  clip-path: polygon(50% 0%, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0% 50%, 38% 38%);
+  opacity: 0.85;
+  filter: drop-shadow(0 0 4px rgba(244, 222, 191, 0.45));
+}
+
+.discipline p {
+  margin: 0;
+  padding: 0 4px;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: clamp(12px, 1.05vw, 15px);
+  font-weight: 600;
+  letter-spacing: 0.38em;
+  text-indent: 0.38em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--cream);
+  text-shadow: 0 2px 14px rgba(4, 28, 56, 0.95), 0 0 20px rgba(244, 222, 191, 0.22);
+  opacity: 0.95;
+}
+
+.section-shell {
+  width: min(1460px, 92vw);
+  margin: 0 auto;
+}
+
+.about {
+  position: relative;
+  min-height: clamp(820px, 108svh, 980px);
+  padding: clamp(70px, 9vh, 96px) 0 clamp(95px, 12vh, 130px);
+  display: grid;
+  grid-template-columns: minmax(0, 1.17fr) minmax(400px, 0.9fr);
+  gap: clamp(48px, 5.5vw, 88px);
+  align-items: center;
+}
+
+.story-art {
+  width: 100%;
+  max-width: 660px;
+  justify-self: end;
+  padding: clamp(19px, 1.55vw, 26px);
+  position: relative;
+  isolation: isolate;
+  background-color: #537583;
+  background-image:
+    conic-gradient(
+      from 45deg at 50% 50%,
+      #f2c62c 0 20%,
+      #e64b2e 20% 30%,
+      #537583 30% 45%,
+      #f2c62c 45% 55%,
+      #e64b2e 55% 65%,
+      #537583 65% 80%,
+      #f2c62c 80% 100%
+    );
+  background-size: 42px 42px;
+  box-shadow: 9px 11px 0 rgba(1, 13, 28, 0.42);
+}
+
+.story-art::before,
+.story-art::after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.story-art::before {
+  inset: 3px;
+  border: 2px solid var(--cream);
+  box-shadow: inset 0 0 0 2px rgba(4, 32, 64, 0.72);
+  transform: rotate(-0.2deg);
+}
+
+.story-art::after {
+  inset: 10px;
+  border: 2px solid rgba(4, 32, 64, 0.75);
+  box-shadow: 0 0 0 1px rgba(244, 222, 191, 0.5);
+  transform: rotate(0.25deg);
+}
+
+.story-stage {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  aspect-ratio: 740 / 615;
+  display: grid;
+  place-items: center;
+  border: 10px solid #2c1715;
+  outline: 3px solid #120b0c;
+  background: var(--hero-navy);
+  box-shadow:
+    inset 0 0 0 3px #70402b,
+    inset 0 0 0 6px rgba(9, 5, 7, 0.7),
+    4px 5px 0 rgba(8, 5, 8, 0.7),
+    8px 9px 12px rgba(1, 10, 24, 0.45);
+  overflow: visible;
+  transform: rotate(-0.18deg);
+}
+
+.story-stage img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  mix-blend-mode: normal;
+}
+
+.about-copy h2,
+.section-heading h2,
+.journal-title h2,
+.contact h2,
+.process h2 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 400;
+  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.about-copy h2 {
+  margin: 26px 0 25px;
+  color: var(--cream);
+  font-size: clamp(74px, 6.7vw, 112px);
+  line-height: 0.86;
+  letter-spacing: -0.035em;
+  text-shadow: none;
+}
+
+.about-copy p {
+  width: 100%;
+  max-width: 570px;
+  margin: 0 0 23px;
+  color: var(--cream);
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(17px, 1.28vw, 22px);
+  line-height: 1.42;
+  letter-spacing: 0.015em;
+  overflow-wrap: break-word;
+}
+
+.about-copy .story-kicker {
+  margin: 0;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+}
+
+.projects {
+  padding-top: 34px;
+}
+
+.section-heading {
+  height: 130px;
+  padding: 0 3vw;
+  display: grid;
+  grid-template-columns: 42px max-content 1fr 42px;
+  gap: 22px;
+  align-items: center;
+}
+
+.section-heading h2 {
+  margin: 0;
+  font-size: clamp(50px, 6vw, 82px);
+}
+
+.section-heading button,
+.journal-title > a,
+.back {
+  border: 0;
+  background: none;
+  color: white;
+  font-family: Georgia, serif;
+  font-size: 70px;
+  line-height: 1;
+  cursor: pointer;
+  text-shadow: 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.heading-rule {
+  height: 12px;
+  border: 2px solid rgba(255, 255, 255, 0.65);
+  border-radius: 999px;
+  box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.22);
+}
+
+.heading-rule span {
+  display: block;
+  width: 34px;
+  height: 34px;
+  margin: -13px 0 0 14%;
+  border-radius: 50%;
+  background: var(--coral);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.24);
+}
+
+.project-paper {
+  padding: 22px 0;
+  background-color: var(--hero-navy);
+  background-image:
+    url("/assets/aged-paper-texture.png"),
+    radial-gradient(ellipse at 25% 50%, rgba(35, 76, 96, 0.16), transparent 38%),
+    radial-gradient(ellipse at 78% 38%, rgba(0, 8, 27, 0.24), transparent 35%),
+    linear-gradient(90deg, transparent 49%, rgba(244, 222, 191, 0.04) 50%, transparent 51%),
+    radial-gradient(rgba(244, 222, 191, 0.16) 0.5px, transparent 0.7px);
+  background-size: 768px 768px, auto, auto, 80px 100%, 5px 5px;
+  background-blend-mode: normal, screen, multiply, normal, normal;
+}
+
+.project-rail {
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+  padding: 0 3vw 12px;
+  scroll-snap-type: x mandatory;
+}
+
+.project-card {
+  position: relative;
+  flex: 0 0 min(45vw, 520px);
+  min-width: 350px;
+  aspect-ratio: 1.55;
+  overflow: hidden;
+  border-radius: 17px;
+  box-shadow: 0 4px 9px rgba(0, 0, 0, 0.38);
+  scroll-snap-align: center;
+}
+
+.project-card > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 500ms ease, filter 300ms ease;
+}
+
+.project-overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  padding: 28px;
+  background: rgba(17, 12, 21, 0.36);
+  text-align: center;
+  transition: background 250ms ease;
+}
+
+.project-card:hover > img {
+  transform: scale(1.06);
+  filter: saturate(1.12);
+}
+
+.project-card:hover .project-overlay {
+  background: rgba(17, 12, 21, 0.12);
+}
+
+.project-overlay h3 {
+  max-width: 390px;
+  margin: 0;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: clamp(24px, 3vw, 40px);
+  font-weight: 800;
+  line-height: 1.08;
+}
+
+.project-overlay p {
+  margin: 10px 0 0;
+  font-size: clamp(18px, 2vw, 27px);
+}
+
+.process {
+  min-height: 720px;
+  display: grid;
+  grid-template-columns: 0.8fr 1.3fr;
+  align-items: center;
+  gap: 4vw;
+  padding: 80px 5vw;
+  background: transparent;
+}
+
+.process-copy {
+  max-width: 470px;
+}
+
+.process .eyebrow {
+  letter-spacing: 0.22em;
+}
+
+.process h2 {
+  margin: 12px 0 20px;
+  font-size: clamp(42px, 5vw, 72px);
+  line-height: 0.95;
+}
+
+.process p {
+  font-size: 21px;
+}
+
+.process img {
+  width: 100%;
+  mix-blend-mode: normal;
+  box-shadow: 12px 16px 0 rgba(39, 89, 205, 0.25);
+}
+
+.journal {
+  padding-bottom: 80px;
+}
+
+.journal-title {
+  min-height: 250px;
+  padding: 25px 4vw;
+  display: grid;
+  grid-template-columns: 45px 1fr 250px;
+  align-items: center;
+}
+
+.journal-title h2 {
+  margin: 0;
+  font-size: clamp(64px, 8vw, 112px);
+  line-height: 0.9;
+}
+
+.scribble {
+  justify-self: center;
+  font: 180px/1 "Playfair Display", serif;
+  color: white;
+  transform: rotate(-19deg) scaleX(1.25);
+  opacity: 0.9;
+}
+
+.journal-intro {
+  min-height: 115px;
+  padding: 18px 4vw;
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 20px;
+  align-items: center;
+  border-block: 1px solid white;
+  background: rgba(4, 32, 64, 0.92);
+}
+
+.mini-tiles {
+  width: 110px;
+  height: 78px;
+  background: url("/assets/culturum-border.png") left top / auto 37px repeat;
+}
+
+.journal-intro div {
+  text-align: right;
+}
+
+.journal-intro h3 {
+  margin: 0;
+  border-bottom: 2px solid white;
+  font-size: 35px;
+  font-weight: 400;
+}
+
+.journal-intro p {
+  margin: 8px 0 0 auto;
+  max-width: 710px;
+  font-size: 15px;
+}
+
+.art-grid {
+  width: min(1120px, 94vw);
+  margin: 26px auto 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 210px;
+  gap: 14px;
+}
+
+.art-grid figure {
+  margin: 0;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.25);
+}
+
+.art-grid img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 250ms ease;
+}
+
+.art-grid figure:hover img {
+  transform: scale(1.035);
+}
+
+.art-1 {
+  grid-row: span 2;
+}
+
+.art-2 {
+  grid-row: span 2;
+}
+
+.art-5,
+.art-6,
+.art-7 {
+  grid-column: span 1;
+}
+
+.contact {
+  min-height: 590px;
+  padding: 70px 4vw;
+  display: grid;
+  grid-template-columns: minmax(250px, 0.7fr) minmax(500px, 1.3fr);
+  gap: 5vw;
+  align-items: center;
+}
+
+.contact-form {
+  position: relative;
+}
+
+.back {
+  position: absolute;
+  top: -60px;
+}
+
+.contact h2 {
+  display: inline-block;
+  margin: 0 0 25px;
+  border-bottom: 3px double white;
+  font-size: clamp(52px, 6vw, 80px);
+  line-height: 1.05;
+}
+
+.contact form {
+  width: min(260px, 100%);
+  display: grid;
+  gap: 14px;
+}
+
+.contact label span {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.contact input,
+.contact form button {
+  width: 100%;
+  height: 35px;
+  border: 0;
+  padding: 2px 14px;
+  background: var(--ice-white);
+  color: var(--navy);
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+}
+
+.contact form button {
+  background: var(--deep-blue);
+  color: var(--ice-white);
+  cursor: pointer;
+}
+
+.socials {
+  display: flex;
+  gap: 12px;
+  margin-top: 35px;
+}
+
+.socials a {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-content: center;
+  border-radius: 4px;
+  background: white;
+  color: var(--culturum-blue);
+  font: 700 21px Arial, sans-serif;
+}
+
+.socials a:first-child {
+  color: var(--coral);
+}
+
+.socials a:last-child {
+  background: var(--coral);
+  color: var(--ice-white);
+}
+
+.contact-art img {
+  display: block;
+  width: 100%;
+  box-shadow: 0 9px 0 rgba(39, 89, 205, 0.25);
+}
+
+@media (max-width: 800px) {
+  .hero {
+    padding: 90px 3vw 55px;
+  }
+
+  .nav {
+    top: 32px;
+    width: 94%;
+    gap: 8px;
+  }
+
+  .nav a {
+    min-width: 0;
+    flex: 1;
+    gap: 7px;
+    padding: 11px 7px 10px;
+    border-width: 1px;
+    font-size: 9px;
+    letter-spacing: 0.12em;
+  }
+
+  .nav a i {
+    width: 9px;
+    height: 9px;
+    flex-basis: 9px;
+  }
+
+  .culturum-flow-wordmark,
+  .hero-wordmark {
+    width: 96vw;
+    margin-top: 36px;
+  }
+
+  .letter-cultural-tag {
+    bottom: calc(100% + 10px);
+    padding: 3px 10px;
+    gap: 4px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.6);
+  }
+
+  .letter-cultural-tag .tag-telugu {
+    font-size: 10px;
+  }
+
+  .letter-cultural-tag .tag-name {
+    font-size: 8.5px;
+  }
+
+  .discipline {
+    width: 92vw;
+    margin-top: 18px;
+    gap: 8px;
+  }
+
+  .discipline-star {
+    width: 7px;
+    height: 7px;
+    flex: 0 0 7px;
+  }
+
+  .discipline p {
+    font-size: 10px;
+    letter-spacing: 0.26em;
+    text-indent: 0.26em;
+  }
+
+  .about {
+    width: min(560px, 90vw);
+    height: auto;
+    min-height: 0;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 54px 0 76px;
+  }
+
+  .story-art {
+    width: min(520px, 100%);
+    margin: auto;
+  }
+
+  .about-copy h2 {
+    margin: 13px 0 18px;
+    font-size: 58px;
+  }
+
+  .about-copy p {
+    margin-bottom: 15px;
+    font-size: 16px;
+  }
+
+  .about-copy .story-kicker {
+    font-size: 12px;
+  }
+
+  .section-heading {
+    grid-template-columns: 25px minmax(0, max-content) 1fr 25px;
+    gap: 10px;
+  }
+
+  .section-heading h2 {
+    max-width: 210px;
+    font-size: 33px;
+    line-height: 0.95;
+  }
+
+  .project-card {
+    flex-basis: 84vw;
+    min-width: 300px;
+  }
+
+  .process {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+
+  .journal-title {
+    grid-template-columns: 28px 1fr;
+  }
+
+  .scribble {
+    display: none;
+  }
+
+  .journal-intro {
+    grid-template-columns: 80px 1fr;
+  }
+
+  .mini-tiles {
+    width: 72px;
+  }
+
+  .art-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 180px;
+  }
+
+  .contact {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-art {
+    order: -1;
+  }
+}
+
+/* ==========================================================================
+   ABOUT ME SECTION — INTERACTIVE PORTRAIT & FLOATING ART CARDS STREAM
+   ========================================================================== */
+
+.about-section {
+  position: relative;
+  min-height: 140vh;
+  padding: 80px 4vw 140px;
+  background: transparent;
+  overflow: visible;
+  z-index: 2;
+}
+
+.about-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: clamp(30px, 4.5vw, 70px);
+  max-width: 1380px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* --- Left Column: Portrait & "Hover on it" Hint --- */
+.portrait-stage-wrapper {
+  position: sticky;
+  top: 90px;
+  flex: 0 0 clamp(290px, 32vw, 410px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 10;
+}
+
+.hover-pointer-hint {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: -15px;
+  align-self: flex-start;
+  margin-left: 20px;
+  pointer-events: none;
+  user-select: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  animation: hintBob 2.4s ease-in-out infinite;
+}
+
+.hover-pointer-hint.hint-hidden {
+  opacity: 0.15;
+  transform: translateY(-4px);
+}
+
+.hover-hint-text {
+  font-family: "Patrick Hand", cursive;
+  font-size: 1.25rem;
+  color: #ffffff;
+  letter-spacing: 0.05em;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+  white-space: nowrap;
+}
+
+.hover-hint-arrow {
+  margin-top: 2px;
+  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.5));
+}
+
+@keyframes hintBob {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.wooden-portrait-stage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 430 / 560;
+  cursor: pointer;
+  user-select: none;
+  border-radius: 8px;
+  transition: transform 0.28s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.wooden-portrait-stage:hover,
+.wooden-portrait-stage.is-hovered {
+  transform: scale(1.045) rotate(-0.5deg);
+}
+
+.portrait-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+  transition: opacity 0.18s ease-in-out, transform 0.2s ease-out;
+}
+
+.portrait-img.idle-img.visible {
+  opacity: 1;
+}
+
+.portrait-img.idle-img.hidden {
+  opacity: 0;
+}
+
+.portrait-img.shout-img.visible {
+  opacity: 1;
+  filter: drop-shadow(0 12px 30px rgba(0, 0, 0, 0.5));
+}
+
+.portrait-img.shout-img.hidden {
+  opacity: 0;
+}
+
+/* --- Right Column: Bio Copy & Floating Parallax Cards --- */
+.about-copy-block {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  padding-top: 85px;
+}
+
+.about-header {
+  position: relative;
+  z-index: 5;
+  margin-bottom: 24px;
+}
+
+.chalk-heading.about-title {
+  font-family: "Fredericka the Great", serif;
+  font-size: clamp(2.8rem, 5.2vw, 4.4rem);
+  font-weight: 400;
+  color: #ffffff;
+  letter-spacing: 0.08em;
+  margin: 0 0 20px 0;
+  line-height: 1.05;
+  text-shadow:
+    0 2px 0 rgba(0, 0, 0, 0.4),
+    0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.bio-paragraphs {
+  font-family: "Patrick Hand", cursive;
+  font-size: clamp(1.2rem, 1.8vw, 1.45rem);
+  color: #f1f5f9;
+  line-height: 1.6;
+  max-width: 720px;
+  margin-bottom: 26px;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.bio-paragraphs p {
+  margin: 0 0 16px 0;
+}
+
+.bio-paragraphs .kicker-tag {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.25em;
+  color: #ffd276;
+  text-transform: uppercase;
+}
+
+.animator-stats-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 10px;
+}
+
+.stat-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(3, 18, 38, 0.75);
+  border: 1.5px solid rgba(244, 222, 191, 0.4);
+  border-radius: 999px;
+  padding: 6px 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(4px);
+}
+
+.stat-val {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 800;
+  font-size: 1.05rem;
+  color: #ffd276;
+}
+
+.stat-lbl {
+  font-family: "Patrick Hand", cursive;
+  font-size: 1.05rem;
+  color: #e2e8f0;
+}
+
+/* --- Floating Parallax Small Photos Field (Scattered like in the video) --- */
+.floating-photos-field {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 4;
+}
+
+.floating-art-photo {
+  position: absolute;
+  width: clamp(130px, 10.5vw, 160px);
+  cursor: pointer;
+  pointer-events: auto;
+  z-index: 5;
+  transition:
+    transform 0.22s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    box-shadow 0.22s ease,
+    z-index 0s;
+  will-change: transform;
+}
+
+.photo-frame {
+  background: #ffffff;
+  padding: 4px;
+  border-radius: 2px;
+  border: 1.5px solid #1a1614;
+  box-shadow:
+    0 5px 15px rgba(0, 0, 0, 0.45),
+    0 1px 3px rgba(0, 0, 0, 0.25);
+  aspect-ratio: 1.45;
+  overflow: hidden;
+  transition:
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.photo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  background: #f5eedc;
+}
+
+.floating-art-photo:hover,
+.floating-art-photo.is-photo-hovered {
+  z-index: 60 !important;
+}
+
+.floating-art-photo:hover .photo-frame,
+.floating-art-photo.is-photo-hovered .photo-frame {
+  border-color: #f29c1f;
+  box-shadow:
+    0 16px 36px rgba(0, 0, 0, 0.65),
+    0 0 0 2.5px #ffdd33;
+}
+
+/* --- Art Card Lightbox Modal --- */
+.art-lightbox-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(3, 14, 28, 0.85);
+  backdrop-filter: blur(8px);
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.art-lightbox-card {
+  position: relative;
+  background: #ffffff;
+  padding: 14px 14px 20px;
+  border-radius: 6px;
+  border: 3px solid #1a1614;
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.6),
+    0 0 0 4px #ffdd33;
+  max-width: min(880px, 92vw);
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.art-lightbox-close {
+  position: absolute;
+  top: -16px;
+  right: -16px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #ee4932;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  font-size: 24px;
+  line-height: 1;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.art-lightbox-close:hover {
+  background: #d43520;
+  transform: scale(1.1);
+}
+
+.art-lightbox-img {
+  width: 100%;
+  max-height: 65vh;
+  object-fit: contain;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  background: #f7f3e8;
+}
+
+.art-lightbox-details {
+  margin-top: 14px;
+  text-align: center;
+}
+
+.art-lightbox-details h3 {
+  margin: 0;
+  font-family: "Fredericka the Great", serif;
+  font-size: 1.8rem;
+  color: #1a1614;
+  letter-spacing: 0.05em;
+}
+
+.art-lightbox-details p {
+  margin: 4px 0 0 0;
+  font-family: "Patrick Hand", cursive;
+  font-size: 1.15rem;
+  color: #665b50;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .about-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+  }
+
+  .portrait-stage-wrapper {
+    position: relative;
+    top: 0;
+    width: min(360px, 86vw);
+  }
+
+  .floating-cards-stream {
+    min-height: 800px;
+  }
+
+  .scrolling-art-card {
+    width: clamp(170px, 42vw, 240px);
+  }
+}

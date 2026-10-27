@@ -1,0 +1,10 @@
+{
+  "description": "Analyze videos frame by frame to extract key insights and design elements, helping users create tailored visual content efficiently.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
