@@ -278,68 +278,6 @@ main {
   border-radius: 8px;
 }
 
-/* Cultural Heritage Plaque (Visible on hover or tap) */
-.wordmark-cultural-badge {
-  position: absolute;
-  top: calc(100% + 14px);
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 6px 16px;
-  background: rgba(4, 18, 36, 0.94);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1.5px solid rgba(255, 221, 51, 0.45);
-  border-radius: 9999px;
-  white-space: nowrap;
-  pointer-events: none;
-  z-index: 50;
-  animation: badgeFadeIn 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  max-width: 92vw;
-}
-
-@keyframes badgeFadeIn {
-  from {
-    opacity: 0;
-    transform: translate(-50%, -6px) scale(0.96);
-  }
-  to {
-    opacity: 1;
-    transform: translate(-50%, 0) scale(1);
-  }
-}
-
-.wordmark-cultural-badge .badge-char {
-  font-family: "Playfair Display", Georgia, serif;
-  font-weight: 700;
-  font-size: 13px;
-  color: #ffdd33;
-}
-
-.wordmark-cultural-badge .badge-dot {
-  color: rgba(255, 255, 255, 0.35);
-  font-size: 11px;
-}
-
-.wordmark-cultural-badge .badge-telugu {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 600;
-  font-size: 11px;
-  color: #ffffff;
-  letter-spacing: 0.04em;
-}
-
-.wordmark-cultural-badge .badge-name {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 500;
-  font-size: 10.5px;
-  color: #93c5fd;
-  letter-spacing: 0.05em;
-}
-
 .discipline {
   width: min(780px, 76vw);
   margin: clamp(28px, 3.4vh, 42px) auto 0;
@@ -898,25 +836,6 @@ main {
   .hero-wordmark {
     width: 95vw;
     margin-top: 30px;
-  }
-
-  .wordmark-cultural-badge {
-    top: calc(100% + 10px);
-    padding: 4px 12px;
-    gap: 6px;
-    max-width: 94vw;
-  }
-
-  .wordmark-cultural-badge .badge-char {
-    font-size: 11px;
-  }
-
-  .wordmark-cultural-badge .badge-telugu {
-    font-size: 9.5px;
-  }
-
-  .wordmark-cultural-badge .badge-name {
-    font-size: 9px;
   }
 
   .discipline {

@@ -244,24 +244,6 @@ export default function CulturumWordmark() {
           );
         })}
       </div>
-
-      {/* Cultural Heritage Plaque (Visible on hover or tap) */}
-      {activeIdx !== null && (
-        <div
-          className="wordmark-cultural-badge"
-          style={{
-            borderColor: CULTURUM_LETTERS[activeIdx].accentColor,
-            boxShadow: `0 8px 24px ${CULTURUM_LETTERS[activeIdx].glowColor}`,
-          }}
-          aria-live="polite"
-        >
-          <span className="badge-char">{CULTURUM_LETTERS[activeIdx].char}</span>
-          <span className="badge-dot">•</span>
-          <span className="badge-telugu">{CULTURUM_LETTERS[activeIdx].teluguName}</span>
-          <span className="badge-dot">•</span>
-          <span className="badge-name">{CULTURUM_LETTERS[activeIdx].name}</span>
-        </div>
-      )}
     </div>
   );
 }
