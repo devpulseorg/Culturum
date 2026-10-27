@@ -10,13 +10,18 @@ interface PhotoItem {
   image: string;
   title: string;
   subtitle: string;
-  left: string;
+  left?: string;
+  right?: string;
   baseTop: number;
+  mobileLeft?: string;
+  mobileRight?: string;
+  mobileTop: number;
   speed: number;
   tilt: string;
 }
 
 // Exactly matching positions and speeds from the portfolio video (frames 13-20)
+// With responsive, safe mobile coordinates that never overflow the viewport
 const TEXTBOOK_PHOTOS: PhotoItem[] = [
   {
     id: "artist",
@@ -25,6 +30,8 @@ const TEXTBOOK_PHOTOS: PhotoItem[] = [
     subtitle: "Folklore Master Study",
     left: "26%",
     baseTop: 65,
+    mobileLeft: "5%",
+    mobileTop: 520,
     speed: 0.35,
     tilt: "-2deg",
   },
@@ -35,6 +42,8 @@ const TEXTBOOK_PHOTOS: PhotoItem[] = [
     subtitle: "Art Exhibition Scene",
     left: "62%",
     baseTop: 10,
+    mobileRight: "5%",
+    mobileTop: 620,
     speed: 0.55,
     tilt: "3deg",
   },
@@ -45,6 +54,8 @@ const TEXTBOOK_PHOTOS: PhotoItem[] = [
     subtitle: "Sketchbook Archive",
     left: "86%",
     baseTop: 185,
+    mobileLeft: "4%",
+    mobileTop: 920,
     speed: 0.40,
     tilt: "4deg",
   },
@@ -55,6 +66,8 @@ const TEXTBOOK_PHOTOS: PhotoItem[] = [
     subtitle: "Classroom Story",
     left: "44%",
     baseTop: 540,
+    mobileRight: "5%",
+    mobileTop: 1160,
     speed: 0.65,
     tilt: "-2deg",
   },
@@ -65,6 +78,8 @@ const TEXTBOOK_PHOTOS: PhotoItem[] = [
     subtitle: "Archival Plate",
     left: "81%",
     baseTop: 680,
+    mobileLeft: "5%",
+    mobileTop: 1400,
     speed: 0.50,
     tilt: "-4deg",
   },
@@ -75,6 +90,8 @@ const TEXTBOOK_PHOTOS: PhotoItem[] = [
     subtitle: "Archival Plate",
     left: "58%",
     baseTop: 840,
+    mobileRight: "5%",
+    mobileTop: 1600,
     speed: 0.75,
     tilt: "3deg",
   },
@@ -85,6 +102,8 @@ const TEXTBOOK_PHOTOS: PhotoItem[] = [
     subtitle: "Archival Plate",
     left: "16%",
     baseTop: 990,
+    mobileLeft: "28%",
+    mobileTop: 1800,
     speed: 0.58,
     tilt: "-3deg",
   },
@@ -95,7 +114,18 @@ export default function AboutSection({ isCulturumMode = false }: AboutSectionPro
   const [activePhoto, setActivePhoto] = useState<string | null>(null);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [selectedPhotoModal, setSelectedPhotoModal] = useState<PhotoItem | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
+
+  // Responsive mobile detector
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   // Parallax scroll listener: measures progress from when #about reaches viewport top
   useEffect(() => {
@@ -131,17 +161,22 @@ export default function AboutSection({ isCulturumMode = false }: AboutSectionPro
       <div className="floating-photos-field" aria-label="Selected textbook illustrations">
         {TEXTBOOK_PHOTOS.map((photo) => {
           const isHovered = activePhoto === photo.id;
-          const yOffset = -(scrollProgress * photo.speed * 0.45);
+          const currentLeft = isMobile ? photo.mobileLeft : photo.left;
+          const currentRight = isMobile ? photo.mobileRight : photo.right;
+          const currentBaseTop = isMobile ? photo.mobileTop : photo.baseTop;
+          const parallaxMultiplier = isMobile ? 0.35 : 0.45;
+          const yOffset = -(scrollProgress * photo.speed * parallaxMultiplier);
 
           return (
             <div
               key={photo.id}
               className={`floating-art-photo ${isHovered ? "is-photo-hovered" : ""}`}
               style={{
-                top: `${photo.baseTop}px`,
-                left: photo.left,
+                top: `${currentBaseTop}px`,
+                left: currentLeft ?? "auto",
+                right: currentRight ?? "auto",
                 transform: isHovered
-                  ? `translate3d(0, ${yOffset}px, 0) scale(1.25) rotate(0deg)`
+                  ? `translate3d(0, ${yOffset}px, 0) scale(1.22) rotate(0deg)`
                   : `translate3d(0, ${yOffset}px, 0) rotate(${photo.tilt})`,
               }}
               onMouseEnter={() => {
@@ -166,14 +201,14 @@ export default function AboutSection({ isCulturumMode = false }: AboutSectionPro
       </div>
 
       <div className="about-container">
-        {/* Left Side: Animated Portrait Frame with "Hover on it" pointer */}
+        {/* Left Side: Animated Portrait Frame with "Hover on it / Tap me!" pointer */}
         <div className="portrait-stage-wrapper">
-          {/* "Hover on it" pointer arrow */}
+          {/* "Hover on it" / "Tap me!" pointer arrow */}
           <div
             className={`hover-pointer-hint ${isPortraitActive ? "hint-hidden" : ""}`}
             aria-hidden="true"
           >
-            <span className="hover-hint-text">Hover on it</span>
+            <span className="hover-hint-text">{isMobile ? "Tap me!" : "Hover on it"}</span>
             <svg
               className="hover-hint-arrow"
               width="36"

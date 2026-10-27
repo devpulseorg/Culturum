@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 
 export interface LetterModuleData {
   id: string;
@@ -156,6 +156,22 @@ export default function CulturumWordmark() {
 
   const activeIdx = hoveredIdx !== null ? hoveredIdx : pinnedIdx;
 
+  // Close pinned letter when clicking/tapping outside
+  useEffect(() => {
+    const handleOutsideClick = (e: MouseEvent | TouchEvent) => {
+      const target = e.target as HTMLElement;
+      if (!target.closest(".culturum-flow-wordmark")) {
+        setPinnedIdx(null);
+      }
+    };
+    document.addEventListener("click", handleOutsideClick);
+    document.addEventListener("touchstart", handleOutsideClick, { passive: true });
+    return () => {
+      document.removeEventListener("click", handleOutsideClick);
+      document.removeEventListener("touchstart", handleOutsideClick);
+    };
+  }, []);
+
   const handleKeyDown = useCallback(
     (e: React.KeyboardEvent, idx: number) => {
       if (e.key === "ArrowRight") {
@@ -228,6 +244,24 @@ export default function CulturumWordmark() {
           );
         })}
       </div>
+
+      {/* Cultural Heritage Plaque (Visible on hover or tap) */}
+      {activeIdx !== null && (
+        <div
+          className="wordmark-cultural-badge"
+          style={{
+            borderColor: CULTURUM_LETTERS[activeIdx].accentColor,
+            boxShadow: `0 8px 24px ${CULTURUM_LETTERS[activeIdx].glowColor}`,
+          }}
+          aria-live="polite"
+        >
+          <span className="badge-char">{CULTURUM_LETTERS[activeIdx].char}</span>
+          <span className="badge-dot">•</span>
+          <span className="badge-telugu">{CULTURUM_LETTERS[activeIdx].teluguName}</span>
+          <span className="badge-dot">•</span>
+          <span className="badge-name">{CULTURUM_LETTERS[activeIdx].name}</span>
+        </div>
+      )}
     </div>
   );
 }
