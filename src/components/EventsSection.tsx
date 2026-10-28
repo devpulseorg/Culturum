@@ -253,7 +253,7 @@ export default function EventsSection() {
               tabIndex={0}
               aria-label={`View details for ${event.title}`}
             >
-              {/* Event Image Frame */}
+              {/* Event Image Frame - Clean Visual Photo Focus */}
               <div className="event-img-frame">
                 <img
                   src={event.image}
@@ -263,22 +263,6 @@ export default function EventsSection() {
                   draggable={false}
                 />
                 <div className="event-badge-tag">{event.badge}</div>
-                <div className="event-gradient-scrim" />
-              </div>
-
-              {/* Event Typography Overlay */}
-              <div className="event-card-content">
-                <div className="event-meta-line">
-                  <span className="event-date">{event.date}</span>
-                  <span className="event-meta-dot">•</span>
-                  <span className="event-venue">{event.venue.split("&")[0].trim()}</span>
-                </div>
-                <h3 className="event-card-title">{event.title}</h3>
-                <p className="event-card-subtitle">{event.category}</p>
-                <div className="event-card-cta">
-                  <span>Explore Event</span>
-                  <i aria-hidden="true">→</i>
-                </div>
               </div>
             </article>
           ))}
