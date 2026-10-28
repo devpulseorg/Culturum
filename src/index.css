@@ -1792,3 +1792,1401 @@ main {
     padding: 16px;
   }
 }
+
+
+/* ==========================================================================
+   CULTURUM ENHANCED LOWER SECTIONS: PROCESS, GALLERY, CONTACT & FOOTER
+   ========================================================================== */
+
+/* 1. PROCESS SECTION */
+.culturum-process-section {
+  position: relative;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 80px 4vw;
+  box-sizing: border-box;
+}
+
+.process-header-wrap {
+  text-align: center;
+  max-width: 780px;
+  margin: 0 auto 50px;
+}
+
+.process-eyebrow-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.process-kicker-line {
+  height: 1px;
+  width: 40px;
+  background: rgba(147, 197, 253, 0.4);
+}
+
+.process-kicker {
+  font-family: "Montserrat", sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  color: #93c5fd;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.process-main-title {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(38px, 4.8vw, 68px);
+  font-weight: 400;
+  line-height: 1.05;
+  color: #ffffff;
+  margin: 0 0 18px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.process-lead-text {
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(15px, 1.2vw, 17px);
+  line-height: 1.6;
+  color: #cbd5e1;
+  margin: 0 auto;
+  max-width: 640px;
+}
+
+.process-body-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.process-steps-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.steps-nav-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 8px;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.2);
+}
+
+.steps-label {
+  font-family: "Montserrat", sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: #fbbf24;
+  font-weight: 600;
+}
+
+.steps-count {
+  font-family: "Montserrat", sans-serif;
+  font-size: 11px;
+  color: #94a3b8;
+  letter-spacing: 0.1em;
+}
+
+.process-steps-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.process-step-card {
+  text-align: left;
+  background: rgba(15, 23, 42, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  padding: 20px 22px;
+  cursor: pointer;
+  transition: all 250ms cubic-bezier(0.16, 1, 0.3, 1);
+  color: inherit;
+  font: inherit;
+  width: 100%;
+}
+
+.process-step-card:hover {
+  background: rgba(30, 41, 59, 0.75);
+  border-color: rgba(251, 191, 36, 0.4);
+  transform: translateX(4px);
+}
+
+.process-step-card.active {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: #fbbf24;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35), inset 0 0 0 1px rgba(251, 191, 36, 0.3);
+}
+
+.step-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.step-num {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #fbbf24;
+}
+
+.step-telugu {
+  font-size: 12px;
+  color: #93c5fd;
+  letter-spacing: 0.05em;
+}
+
+.step-title {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 20px;
+  color: #ffffff;
+  margin: 0 0 8px;
+  font-weight: 600;
+}
+
+.step-desc {
+  font-family: "Montserrat", sans-serif;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: #94a3b8;
+  margin: 0 0 12px;
+}
+
+.step-tags-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.step-tag-pill {
+  font-family: "Montserrat", sans-serif;
+  font-size: 10px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  color: #cbd5e1;
+  letter-spacing: 0.04em;
+}
+
+.process-step-card.active .step-tag-pill {
+  background: rgba(251, 191, 36, 0.15);
+  color: #fde68a;
+}
+
+/* Artwork Column Frame */
+.process-artwork-column {
+  position: relative;
+}
+
+.artwork-mat-frame {
+  background: #fdfbf7;
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(0, 0, 0, 0.1);
+  color: #1e293b;
+  position: relative;
+  overflow: hidden;
+}
+
+.mat-frame-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e2e8f0;
+  margin-bottom: 12px;
+}
+
+.mat-brass-rivet {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #fef08a, #b45309);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.mat-plate-text {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.plate-kicker {
+  font-family: "Montserrat", sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: #b45309;
+}
+
+.plate-title {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #0f172a;
+}
+
+.mat-image-wrapper {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #111827;
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.process-showcase-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  transition: transform 400ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.artwork-mat-frame:hover .process-showcase-img {
+  transform: scale(1.02);
+}
+
+.mat-frame-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 14px;
+  gap: 16px;
+}
+
+.mat-footer-meta {
+  flex: 1;
+}
+
+.meta-badge {
+  font-family: "Montserrat", sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #0369a1;
+  display: inline-block;
+  margin-bottom: 4px;
+}
+
+.meta-caption {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 13.5px;
+  font-style: italic;
+  color: #334155;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.mat-stamp-seal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 58px;
+  height: 58px;
+  border: 1.5px dashed #b91c1c;
+  border-radius: 50%;
+  transform: rotate(-10deg);
+  padding: 4px;
+  color: #b91c1c;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 800;
+  text-align: center;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.stamp-circle {
+  font-size: 9px;
+  letter-spacing: 0.06em;
+}
+
+.stamp-sub {
+  font-size: 7.5px;
+  letter-spacing: 0.1em;
+  margin-top: 2px;
+}
+
+/* 2. GALLERY / VISUAL JOURNEY SECTION */
+.culturum-gallery-section {
+  position: relative;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 80px 4vw 90px;
+  box-sizing: border-box;
+}
+
+.gallery-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.gallery-back-link {
+  font-family: Georgia, serif;
+  font-size: 48px;
+  line-height: 1;
+  color: #ffffff;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: all 200ms ease;
+  flex-shrink: 0;
+}
+
+.gallery-back-link:hover {
+  background: rgba(255, 255, 255, 0.18);
+  transform: scale(1.05);
+}
+
+.gallery-title-box {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.gallery-telugu-kicker {
+  font-family: "Montserrat", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: #93c5fd;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.gallery-main-title {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(38px, 5.5vw, 76px);
+  font-weight: 400;
+  line-height: 0.95;
+  color: #ffffff;
+  margin: 0;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+}
+
+.gallery-ornament-tile {
+  width: 60px;
+  height: 60px;
+  opacity: 0.8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tile-pattern-cluster {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+  width: 44px;
+  height: 44px;
+}
+
+.tile-unit {
+  background: rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 3px;
+}
+
+.gallery-toolbar-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 30px;
+  margin-bottom: 36px;
+  flex-wrap: wrap;
+}
+
+.gallery-intro-text {
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #cbd5e1;
+  max-width: 600px;
+  margin: 0;
+}
+
+.gallery-filter-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.filter-pill-btn {
+  font-family: "Montserrat", sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(15, 23, 42, 0.5);
+  color: #cbd5e1;
+  cursor: pointer;
+  transition: all 200ms ease;
+}
+
+.filter-pill-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+}
+
+.filter-pill-btn.active {
+  background: #ffffff;
+  color: #0f172a;
+  border-color: #ffffff;
+  box-shadow: 0 4px 14px rgba(255, 255, 255, 0.2);
+}
+
+/* Gallery Grid */
+.gallery-masonry-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.gallery-art-card {
+  cursor: pointer;
+  outline: none;
+  transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gallery-art-card:hover {
+  transform: translateY(-5px);
+}
+
+.art-frame-paper {
+  background: #fdfbf7;
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.art-image-viewport {
+  position: relative;
+  width: 100%;
+  height: 240px;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #0f172a;
+}
+
+.art-canvas-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 400ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gallery-art-card:hover .art-canvas-img {
+  transform: scale(1.04);
+}
+
+.art-hover-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 250ms ease;
+}
+
+.gallery-art-card:hover .art-hover-overlay {
+  opacity: 1;
+}
+
+.expand-pill {
+  font-family: "Montserrat", sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: #ffffff;
+  color: #0f172a;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.art-card-info {
+  padding: 14px 4px 4px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.art-info-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.art-category-badge {
+  font-family: "Montserrat", sans-serif;
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #c2410c;
+  text-transform: uppercase;
+}
+
+.art-year-tag {
+  font-family: "Montserrat", sans-serif;
+  font-size: 10px;
+  color: #64748b;
+}
+
+.art-card-title {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 6px;
+  line-height: 1.2;
+}
+
+.art-medium-label {
+  font-family: "Montserrat", sans-serif;
+  font-size: 11.5px;
+  color: #475569;
+  margin: auto 0 0;
+  line-height: 1.4;
+}
+
+/* Lightbox Modal */
+.art-lightbox-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(3, 7, 18, 0.85);
+  backdrop-filter: blur(8px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.art-lightbox-card {
+  background: #fdfbf7;
+  border-radius: 16px;
+  max-width: 900px;
+  width: 100%;
+  max-height: 88vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  color: #0f172a;
+}
+
+.art-lightbox-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #0f172a;
+  color: #ffffff;
+  border: 0;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: transform 200ms ease;
+}
+
+.art-lightbox-close:hover {
+  transform: scale(1.1);
+}
+
+.lightbox-image-column {
+  background: #0f172a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 16px;
+  border-top-left-radius: 16px;
+  border-bottom-left-radius: 16px;
+}
+
+.lightbox-full-img {
+  width: 100%;
+  max-height: 70vh;
+  object-fit: contain;
+  border-radius: 6px;
+}
+
+.lightbox-details-column {
+  padding: 36px 32px;
+  display: flex;
+  flex-direction: column;
+}
+
+.lightbox-category {
+  font-family: "Montserrat", sans-serif;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #c2410c;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.lightbox-title {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 28px;
+  color: #0f172a;
+  margin: 0 0 12px;
+  line-height: 1.15;
+}
+
+.lightbox-meta-row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 12.5px;
+  color: #475569;
+}
+
+.lightbox-rule {
+  height: 1px;
+  background: #e2e8f0;
+  margin: 18px 0;
+}
+
+.lightbox-desc {
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  line-height: 1.65;
+  color: #334155;
+  margin: 0 0 24px;
+}
+
+.lightbox-badge-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: auto;
+}
+
+.curated-badge {
+  font-family: "Montserrat", sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 5px 10px;
+  border-radius: 6px;
+  background: #f1f5f9;
+  color: #0369a1;
+  border: 1px solid #cbd5e1;
+}
+
+/* 3. CONTACT SECTION */
+.culturum-contact-section {
+  position: relative;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 80px 4vw 90px;
+  box-sizing: border-box;
+}
+
+.contact-main-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 50px;
+  align-items: flex-start;
+}
+
+.contact-form-column {
+  position: relative;
+}
+
+.contact-back-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  font-family: Georgia, serif;
+  font-size: 44px;
+  line-height: 1;
+  text-decoration: none;
+  margin-bottom: 20px;
+  transition: all 200ms ease;
+}
+
+.contact-back-link:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+.contact-title-group {
+  margin-bottom: 30px;
+}
+
+.contact-telugu-kicker {
+  font-family: "Montserrat", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: #93c5fd;
+  text-transform: uppercase;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.contact-main-heading {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(40px, 5.2vw, 72px);
+  font-weight: 400;
+  line-height: 0.98;
+  color: #ffffff;
+  margin: 0 0 16px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+}
+
+.contact-subheading {
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #cbd5e1;
+  margin: 0;
+  max-width: 520px;
+}
+
+/* Stationery Form */
+.culturum-stationery-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  max-width: 520px;
+}
+
+.form-field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field-label {
+  font-family: "Montserrat", sans-serif;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: #e2e8f0;
+  text-transform: uppercase;
+}
+
+.field-label .req {
+  color: #f87171;
+}
+
+.stationery-input,
+.stationery-select,
+.stationery-textarea {
+  width: 100%;
+  box-sizing: border-box;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: 12px 14px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  color: #ffffff;
+  outline: none;
+  transition: all 200ms ease;
+}
+
+.stationery-input:focus,
+.stationery-select:focus,
+.stationery-textarea:focus {
+  border-color: #60a5fa;
+  background: rgba(15, 23, 42, 0.85);
+  box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.25);
+}
+
+.stationery-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 14px;
+  padding-right: 36px;
+  cursor: pointer;
+}
+
+.stationery-select option {
+  background: #0f172a;
+  color: #ffffff;
+}
+
+.stationery-textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.stationery-submit-btn {
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+  color: #0f172a;
+  border: none;
+  border-radius: 8px;
+  padding: 16px 28px;
+  cursor: pointer;
+  transition: all 250ms cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 16px rgba(245, 158, 11, 0.35);
+  margin-top: 6px;
+}
+
+.stationery-submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(245, 158, 11, 0.5);
+  background: linear-gradient(135deg, #fef08a 0%, #fbbf24 100%);
+}
+
+.stationery-submit-btn:active {
+  transform: translateY(1px);
+}
+
+.stationery-submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Success Card */
+.contact-success-box {
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  border-radius: 12px;
+  padding: 30px;
+  max-width: 520px;
+  text-align: center;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+}
+
+.success-icon-wrap {
+  font-size: 42px;
+  margin-bottom: 12px;
+}
+
+.success-title {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 24px;
+  color: #6ee7b7;
+  margin: 0 0 10px;
+}
+
+.success-message {
+  font-family: "Montserrat", sans-serif;
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: #e2e8f0;
+  margin: 0 0 20px;
+}
+
+.success-reset-btn {
+  font-family: "Montserrat", sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  padding: 10px 20px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 200ms ease;
+}
+
+.success-reset-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Social Row */
+.contact-social-row {
+  margin-top: 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.social-label {
+  font-family: "Montserrat", sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: #94a3b8;
+  font-weight: 700;
+}
+
+.social-icons-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.social-pill-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+  text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  transition: all 200ms ease;
+}
+
+.social-pill-link:hover {
+  background: #ffffff;
+  color: #0f172a;
+  border-color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+}
+
+/* Right Column: Artisan House Card */
+.artisan-house-card {
+  background: #fdfbf7;
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(0, 0, 0, 0.1);
+  color: #1e293b;
+}
+
+.house-card-top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e2e8f0;
+  margin-bottom: 12px;
+}
+
+.house-location-tag {
+  font-family: "Montserrat", sans-serif;
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #c2410c;
+}
+
+.house-year-tag {
+  font-family: "Montserrat", sans-serif;
+  font-size: 10px;
+  color: #64748b;
+  font-weight: 600;
+}
+
+.house-image-frame {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #0f172a;
+}
+
+.house-showcase-photo {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  display: block;
+}
+
+.house-image-caption-strip {
+  padding: 12px 14px;
+  background: #f1f5f9;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.house-image-caption-strip p {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 13.5px;
+  color: #334155;
+  margin: 0;
+}
+
+.telugu-caption {
+  font-size: 12px;
+  color: #0369a1;
+  font-weight: 600;
+}
+
+.house-card-details {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-top: 16px;
+}
+
+.house-detail-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.detail-title {
+  font-family: "Montserrat", sans-serif;
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #b45309;
+}
+
+.detail-val {
+  font-family: "Montserrat", sans-serif;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #334155;
+  margin: 0;
+}
+
+/* 4. FOOTER SECTION */
+.culturum-site-footer {
+  position: relative;
+  width: 100%;
+  background: rgba(3, 10, 24, 0.85);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 60px 4vw 40px;
+  box-sizing: border-box;
+  color: #cbd5e1;
+}
+
+.footer-top-rule {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 40px;
+  color: #fbbf24;
+}
+
+.rule-line {
+  height: 1px;
+  width: min(200px, 20vw);
+  background: linear-gradient(90deg, transparent, rgba(251, 191, 36, 0.4), transparent);
+}
+
+.rule-diamond {
+  width: 6px;
+  height: 6px;
+  background: #fbbf24;
+  transform: rotate(45deg);
+  opacity: 0.6;
+}
+
+.rule-star {
+  font-size: 12px;
+}
+
+.footer-main-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: 40px;
+  padding-bottom: 50px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-brand-column {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-brand-title {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 32px;
+  color: #ffffff;
+  letter-spacing: 0.05em;
+  margin: 0;
+}
+
+.footer-brand-tagline {
+  font-family: "Montserrat", sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  color: #fbbf24;
+  margin: 2px 0 0;
+  font-weight: 700;
+}
+
+.footer-cultural-quote {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 14px;
+  font-style: italic;
+  line-height: 1.6;
+  color: #94a3b8;
+  margin: 0;
+}
+
+.footer-telugu-blessing {
+  font-size: 12px;
+  color: #93c5fd;
+  letter-spacing: 0.06em;
+}
+
+.footer-nav-column {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.footer-nav-heading {
+  font-family: "Montserrat", sans-serif;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: #ffffff;
+  margin: 0;
+}
+
+.footer-links-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-links-list a {
+  color: #94a3b8;
+  text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+  font-size: 13px;
+  transition: color 200ms ease;
+}
+
+.footer-links-list a:hover {
+  color: #fbbf24;
+}
+
+.loc-title {
+  font-family: "Montserrat", sans-serif;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #e2e8f0;
+  display: block;
+}
+
+.loc-sub {
+  font-family: "Montserrat", sans-serif;
+  font-size: 11px;
+  color: #64748b;
+  display: block;
+  margin-top: 1px;
+}
+
+.footer-action-column {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 18px;
+}
+
+.footer-back-to-top-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  font-family: "Montserrat", sans-serif;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  cursor: pointer;
+  transition: all 200ms ease;
+}
+
+.footer-back-to-top-btn:hover {
+  background: #ffffff;
+  color: #0f172a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(255, 255, 255, 0.25);
+}
+
+.footer-quick-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #34d399;
+}
+
+.badge-dot {
+  width: 7px;
+  height: 7px;
+  background: #10b981;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #10b981;
+}
+
+.footer-bottom-bar {
+  max-width: 1280px;
+  margin: 30px auto 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 11px;
+  color: #64748b;
+  flex-wrap: wrap;
+}
+
+.copyright-text {
+  margin: 0;
+}
+
+.footer-sub-links {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dot-sep {
+  opacity: 0.5;
+}
+
+/* ==========================================================================
+   MOBILE RESPONSIVENESS FOR ENHANCED LOWER SECTIONS
+   ========================================================================== */
+@media (max-width: 900px) {
+  .process-body-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .gallery-masonry-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+
+  .contact-main-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .footer-main-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
+
+  .art-lightbox-card {
+    grid-template-columns: 1fr;
+    max-height: 92vh;
+  }
+
+  .lightbox-details-column {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 640px) {
+  .culturum-process-section,
+  .culturum-gallery-section,
+  .culturum-contact-section {
+    padding: 50px 4vw 60px;
+  }
+
+  .process-step-card {
+    padding: 16px;
+  }
+
+  .gallery-header-row {
+    gap: 12px;
+  }
+
+  .gallery-back-link {
+    width: 36px;
+    height: 36px;
+    font-size: 34px;
+  }
+
+  .gallery-ornament-tile {
+    display: none;
+  }
+
+  .gallery-toolbar-row {
+    gap: 16px;
+  }
+
+  .gallery-masonry-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .art-image-viewport {
+    height: 220px;
+  }
+
+  .footer-main-container {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .footer-bottom-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}

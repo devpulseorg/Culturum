@@ -117,6 +117,14 @@ class SoundEffects {
       // ignore
     }
   }
+
+  public playTap() {
+    this.playClick();
+  }
+
+  public playSwoosh() {
+    this.playChirp();
+  }
 }
 
 export const sounds = new SoundEffects();
