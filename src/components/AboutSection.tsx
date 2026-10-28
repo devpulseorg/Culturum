@@ -30,10 +30,10 @@ const TEXTBOOK_PHOTOS: PhotoItem[] = [
     subtitle: "Folklore Master Study",
     left: "26%",
     baseTop: 65,
-    mobileLeft: "5%",
-    mobileTop: 520,
+    mobileLeft: "4%",
+    mobileTop: 450,
     speed: 0.35,
-    tilt: "-2deg",
+    tilt: "-3deg",
   },
   {
     id: "checking",
@@ -42,9 +42,9 @@ const TEXTBOOK_PHOTOS: PhotoItem[] = [
     subtitle: "Art Exhibition Scene",
     left: "62%",
     baseTop: 10,
-    mobileRight: "5%",
-    mobileTop: 620,
-    speed: 0.55,
+    mobileRight: "4%",
+    mobileTop: 40,
+    speed: 0.40,
     tilt: "3deg",
   },
   {
@@ -54,10 +54,10 @@ const TEXTBOOK_PHOTOS: PhotoItem[] = [
     subtitle: "Sketchbook Archive",
     left: "86%",
     baseTop: 185,
-    mobileLeft: "4%",
-    mobileTop: 920,
-    speed: 0.40,
-    tilt: "4deg",
+    mobileRight: "4%",
+    mobileTop: 680,
+    speed: 0.35,
+    tilt: "3.5deg",
   },
   {
     id: "happy_kid",
@@ -66,9 +66,9 @@ const TEXTBOOK_PHOTOS: PhotoItem[] = [
     subtitle: "Classroom Story",
     left: "44%",
     baseTop: 540,
-    mobileRight: "5%",
-    mobileTop: 1160,
-    speed: 0.65,
+    mobileLeft: "4%",
+    mobileTop: 900,
+    speed: 0.40,
     tilt: "-2deg",
   },
   {
@@ -78,8 +78,8 @@ const TEXTBOOK_PHOTOS: PhotoItem[] = [
     subtitle: "Archival Plate",
     left: "81%",
     baseTop: 680,
-    mobileLeft: "5%",
-    mobileTop: 1400,
+    mobileLeft: "4%",
+    mobileTop: 720,
     speed: 0.50,
     tilt: "-4deg",
   },
@@ -90,8 +90,8 @@ const TEXTBOOK_PHOTOS: PhotoItem[] = [
     subtitle: "Archival Plate",
     left: "58%",
     baseTop: 840,
-    mobileRight: "5%",
-    mobileTop: 1600,
+    mobileRight: "4%",
+    mobileTop: 820,
     speed: 0.75,
     tilt: "3deg",
   },
@@ -102,8 +102,8 @@ const TEXTBOOK_PHOTOS: PhotoItem[] = [
     subtitle: "Archival Plate",
     left: "16%",
     baseTop: 990,
-    mobileLeft: "28%",
-    mobileTop: 1800,
+    mobileLeft: "26%",
+    mobileTop: 920,
     speed: 0.58,
     tilt: "-3deg",
   },
@@ -160,6 +160,12 @@ export default function AboutSection({ isCulturumMode = false }: AboutSectionPro
       {/* Floating Small Photos Field (Positioned randomly across the section like in the video) */}
       <div className="floating-photos-field" aria-label="Selected textbook illustrations">
         {TEXTBOOK_PHOTOS.map((photo) => {
+          // On mobile, only display the 4 authentic textbook illustrations alongside the bio.
+          // Blank placeholders are omitted on mobile to eliminate any trailing empty gaps.
+          if (isMobile && photo.id.startsWith("placeholder")) {
+            return null;
+          }
+
           const isHovered = activePhoto === photo.id;
           const currentLeft = isMobile ? photo.mobileLeft : photo.left;
           const currentRight = isMobile ? photo.mobileRight : photo.right;
