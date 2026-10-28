@@ -506,6 +506,392 @@ main {
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.24);
 }
 
+/* ==========================================================================
+   CULTURUM EVENTS & SHOWCASES — BUTTER-SMOOTH AUTOMATIC GLIDE CAROUSEL
+   ========================================================================== */
+
+.events-showcase-section {
+  position: relative;
+  background: transparent;
+  padding: 40px 0 60px;
+  overflow: hidden;
+}
+
+.heading-title-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.heading-title-group h2 {
+  margin: 0;
+}
+
+.events-subtext {
+  font-family: "Montserrat", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  color: #93c5fd;
+  text-transform: uppercase;
+}
+
+.events-paper-container {
+  position: relative;
+  width: 100%;
+  padding: 24px 0 32px;
+  background-color: transparent;
+}
+
+.events-scroll-track {
+  display: flex;
+  gap: 28px;
+  overflow-x: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch;
+  padding: 10px 4vw 20px;
+  cursor: grab;
+  user-select: none;
+  will-change: scroll-position;
+}
+
+.events-scroll-track::-webkit-scrollbar {
+  display: none;
+}
+
+.events-scroll-track:active {
+  cursor: grabbing;
+}
+
+/* Event Card Item: Vintage Textbook & Risograph Framed Aesthetic */
+.event-card-item {
+  position: relative;
+  flex: 0 0 clamp(320px, 32vw, 440px);
+  min-width: 300px;
+  background: #ffffff;
+  padding: 8px 8px 14px;
+  border-radius: 6px;
+  border: 1.5px solid #231c18;
+  box-shadow:
+    0 12px 28px rgba(0, 0, 0, 0.45),
+    0 2px 6px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+  will-change: transform;
+}
+
+.event-card-item:hover {
+  transform: translateY(-8px) scale(1.02);
+  border-color: #f59e0b;
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.6),
+    0 0 0 2px #ffdd33;
+}
+
+/* Image frame */
+.event-img-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1.48;
+  overflow: hidden;
+  border-radius: 3px;
+  background: #fbf5e8;
+}
+
+.event-poster-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
+}
+
+.event-card-item:hover .event-poster-img {
+  transform: scale(1.06);
+}
+
+.event-badge-tag {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 2;
+  padding: 4px 10px;
+  background: rgba(3, 14, 28, 0.88);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 221, 51, 0.6);
+  border-radius: 999px;
+  color: #ffdd33;
+  font-family: "Montserrat", sans-serif;
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.event-gradient-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 60%, rgba(5, 18, 36, 0.4) 100%);
+  pointer-events: none;
+}
+
+/* Event Card Typography */
+.event-card-content {
+  padding: 14px 8px 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.event-meta-line {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: #c25e00;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.event-meta-dot {
+  color: #d1b89d;
+}
+
+.event-card-title {
+  margin: 2px 0 0;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(20px, 1.8vw, 24px);
+  font-weight: 700;
+  color: #17110e;
+  line-height: 1.15;
+}
+
+.event-card-subtitle {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  font-size: 12.5px;
+  color: #4a3e35;
+  line-height: 1.45;
+}
+
+.event-card-cta {
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #b91c1c;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.event-card-item:hover .event-card-cta {
+  transform: translateX(4px);
+  color: #ea580c;
+}
+
+/* Event Details Modal */
+.event-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(3, 14, 28, 0.88);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  animation: fadeIn 0.25s ease-out;
+}
+
+.event-modal-card {
+  position: relative;
+  width: min(92vw, 680px);
+  max-height: 88vh;
+  overflow-y: auto;
+  background: #081d38;
+  border: 1.5px solid rgba(255, 221, 51, 0.45);
+  border-radius: 16px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.7);
+  color: #f1ede4;
+}
+
+.event-modal-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 10;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(4, 18, 36, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.event-modal-close:hover {
+  background: #e11d48;
+  transform: scale(1.08);
+}
+
+.event-modal-banner {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1.7;
+  overflow: hidden;
+  background: #000000;
+}
+
+.event-modal-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.event-modal-banner-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(4, 18, 36, 0.2) 0%, rgba(4, 18, 36, 0.92) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 24px;
+}
+
+.event-modal-badge {
+  display: inline-block;
+  align-self: flex-start;
+  padding: 4px 10px;
+  background: #ffdd33;
+  color: #041224;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.event-modal-banner-scrim h2 {
+  margin: 0;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(26px, 3.5vw, 36px);
+  color: #ffffff;
+  line-height: 1.1;
+}
+
+.event-modal-tagline {
+  margin: 6px 0 0;
+  font-family: "Montserrat", sans-serif;
+  font-size: 13.5px;
+  color: #93c5fd;
+  line-height: 1.4;
+}
+
+.event-modal-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.event-modal-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 12px;
+  padding: 14px;
+  background: rgba(3, 14, 28, 0.6);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.meta-box {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.meta-lbl {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #94a3b8;
+}
+
+.meta-val {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #fef08a;
+}
+
+.event-modal-narrative h3,
+.event-modal-highlights h3 {
+  margin: 0 0 10px;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 18px;
+  color: #ffffff;
+}
+
+.event-modal-narrative p {
+  margin: 0 0 10px;
+  font-size: 13.5px;
+  line-height: 1.65;
+  color: #cbd5e1;
+}
+
+.event-modal-highlights ul {
+  margin: 0;
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.event-modal-highlights li {
+  font-size: 13px;
+  color: #e2e8f0;
+  line-height: 1.5;
+}
+
+.event-modal-footer {
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.event-rsvp-btn {
+  padding: 12px 28px;
+  background: linear-gradient(135deg, #f59e0b 0%, #ea580c 100%);
+  border: none;
+  border-radius: 999px;
+  color: #ffffff;
+  font-family: "Montserrat", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(234, 88, 12, 0.45);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.event-rsvp-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(234, 88, 12, 0.65);
+}
+
 .project-paper {
   padding: 22px 0;
   background-color: var(--hero-navy);
@@ -887,14 +1273,31 @@ main {
   }
 
   .section-heading {
-    grid-template-columns: 25px minmax(0, max-content) 1fr 25px;
-    gap: 10px;
+    height: auto;
+    padding: 16px 4vw;
+    grid-template-columns: 32px 1fr 32px;
+    gap: 14px;
+    align-items: center;
+  }
+
+  .section-heading .heading-rule {
+    display: none;
   }
 
   .section-heading h2 {
-    max-width: 210px;
-    font-size: 26px;
-    line-height: 1.05;
+    max-width: 100%;
+    font-size: clamp(20px, 5.5vw, 28px);
+    line-height: 1.1;
+  }
+
+  .heading-title-group {
+    width: 100%;
+  }
+
+  .events-subtext {
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    line-height: 1.3;
   }
 
   .project-card {

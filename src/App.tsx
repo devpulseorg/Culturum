@@ -2,6 +2,7 @@ import { useRef, useEffect } from "react";
 import CulturumWordmark from "./components/CulturumWordmark";
 import ScrollTileBorder from "./components/ScrollTileBorder";
 import AboutSection from "./components/AboutSection";
+import EventsSection from "./components/EventsSection";
 
 const projects = [
   {
@@ -91,34 +92,8 @@ export default function App() {
 
       <AboutSection />
 
-      <section className="projects" id="events">
-        <div className="section-heading">
-          <button onClick={() => scrollProjects(-1)} aria-label="Previous projects">‹</button>
-          <h2>EVENTS &amp; PROJECTS</h2>
-          <div className="heading-rule"><span /></div>
-          <button onClick={() => scrollProjects(1)} aria-label="Next projects">›</button>
-        </div>
-        <div className="project-paper">
-          <div className="project-rail" ref={projectRail}>
-            {projects.map((project) => (
-              <article className="project-card" key={project.title}>
-                <img src={project.image} alt={project.title} />
-                <div className="project-overlay">
-                  {!project.hasBakedText ? (
-                    <>
-                      <h3>{project.title}</h3>
-                      <p>{project.type}</p>
-                    </>
-                  ) : (
-                    <span className="sr-only">{project.title} - {project.type}</span>
-                  )}
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-        <TileBorder />
-      </section>
+      <EventsSection />
+      <TileBorder />
 
       <section className="process">
         <div className="process-copy">
