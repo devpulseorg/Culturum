@@ -1,56 +1,37 @@
 import { useState, useRef, useEffect, useCallback } from "react";
-import { sounds } from "../utils/soundEffects";
 
 interface FolkCharacter {
   id: string;
   name: string;
-  telugu: string;
-  artTradition: string;
   image: string;
-  widthRatio: number; // for proportional spacing
 }
 
 // Top Row: 5 characters (Scrolls LEFT on page scroll)
 const TOP_ROW_CHARACTERS: FolkCharacter[] = [
   {
     id: "dancer_mudra",
-    name: "KUCHIPUDI & BHARATANATYAM DANCER",
-    telugu: "నాట్య మయూరి • ముద్ర సాధన",
-    artTradition: "Classical Mudra & Temple Repertoire",
+    name: "Kuchipudi & Bharatanatyam Dancer",
     image: "/assets/characters/char_dancer_mudra.png",
-    widthRatio: 1.0,
   },
   {
     id: "veena_player",
-    name: "SARASWATI VEENA MAESTRO",
-    telugu: "వీణా విద్వాంసుడు • నాద బ్రహ్మ",
-    artTradition: "Carnatic String & Classical Yali Carving",
+    name: "Saraswati Veena Maestro",
     image: "/assets/characters/char_veena_player.png",
-    widthRatio: 1.15,
   },
   {
     id: "bansuri_flutist",
-    name: "FOLK BANSURI FLUTIST",
-    telugu: "వేణుగాన విలాసం",
-    artTradition: "Pastoral Indian Bamboo Flute Melody",
+    name: "Folk Bansuri Flutist",
     image: "/assets/characters/char_bansuri_flutist.png",
-    widthRatio: 0.9,
   },
   {
     id: "royal_horse",
-    name: "CEREMONIAL FESTIVAL STALLION",
-    telugu: "ఉత్సవ అశ్వం • రాజ దర్బారు",
-    artTradition: "Cheriyal Festival Procession Regalia",
+    name: "Ceremonial Festival Stallion",
     image: "/assets/characters/char_royal_horse.png",
-    widthRatio: 1.5,
   },
   {
     id: "kalamkari_artist",
-    name: "KALAMKARI SCROLL MASTER",
-    telugu: "కలంకారీ చిత్రకారుడు",
-    artTradition: "Natural Stone Pigment & Reed Pen Scroll",
+    name: "Kalamkari Scroll Artisan",
     image: "/assets/characters/char_kalamkari_artist.png",
-    widthRatio: 1.25,
   },
 ];
 
@@ -58,50 +39,34 @@ const TOP_ROW_CHARACTERS: FolkCharacter[] = [
 const BOTTOM_ROW_CHARACTERS: FolkCharacter[] = [
   {
     id: "folk_dancer_woman",
-    name: "JOYOUS MANJIRA FOLK DANCER",
-    telugu: "జానపద నృత్యం • తాళ నాదం",
-    artTradition: "Twirling Ghagra & Brass Cymbal Rhythm",
+    name: "Joyous Manjira Folk Dancer",
     image: "/assets/characters/char_folk_dancer_woman.png",
-    widthRatio: 1.35,
   },
   {
     id: "mridangam_drummer",
-    name: "MRIDANGAM PERCUSSIONIST",
-    telugu: "మృదంగ విద్వాంసుడు • లయ సాధన",
-    artTradition: "Classical Carnatic Tala & Rhythm",
+    name: "Mridangam Percussionist",
     image: "/assets/characters/char_mridangam_drummer.png",
-    widthRatio: 1.05,
   },
   {
     id: "puppet_master",
-    name: "THOLU BOMMALATA PUPPETEER",
-    telugu: "తోలుబొమ్మలాట సూత్రధారి",
-    artTradition: "Andhra Translucent Leather Shadow Puppetry",
+    name: "Tholu Bommalata Puppeteer",
     image: "/assets/characters/char_puppet_master.png",
-    widthRatio: 1.3,
   },
   {
     id: "sitar_maestro",
-    name: "CLASSICAL SITAR MAESTRO",
-    telugu: "సితార్ వాద్య కళాకారుడు",
-    artTradition: "Hindustani Classical Raga & Meend",
+    name: "Classical Sitar Maestro",
     image: "/assets/characters/char_sitar_maestro.png",
-    widthRatio: 1.0,
   },
   {
     id: "shehnai_player",
-    name: "CEREMONIAL SHEHNAI PLAYER",
-    telugu: "మంగళ నాదస్వరం • ఉత్సవ శబ్దం",
-    artTradition: "Festival Mangalavadya & Brass Bell Horn",
+    name: "Ceremonial Shehnai Player",
     image: "/assets/characters/char_shehnai_player.png",
-    widthRatio: 1.05,
   },
 ];
 
 export default function ProcessSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const [scrollProgress, setScrollProgress] = useState(0);
-  const [activeTooltip, setActiveTooltip] = useState<FolkCharacter | null>(null);
 
   // Scroll listener for buttery smooth opposite parallax
   const handleScroll = useCallback(() => {
@@ -164,22 +129,7 @@ export default function ProcessSection() {
             }}
           >
             {TOP_ROW_CHARACTERS.map((char) => (
-              <div
-                key={char.id}
-                className="character-figure-wrap"
-                onMouseEnter={() => {
-                  sounds.playTap();
-                  setActiveTooltip(char);
-                }}
-                onMouseLeave={() => setActiveTooltip(null)}
-                onClick={() => {
-                  sounds.playClick();
-                  setActiveTooltip(char);
-                }}
-                role="button"
-                tabIndex={0}
-                aria-label={char.name}
-              >
+              <div key={char.id} className="character-figure-wrap">
                 <img
                   src={char.image}
                   alt={char.name}
@@ -187,20 +137,9 @@ export default function ProcessSection() {
                   loading="lazy"
                   draggable={false}
                 />
-                <div className="character-label-pill">
-                  <span className="pill-name">{char.name}</span>
-                  <span className="pill-telugu">{char.telugu}</span>
-                </div>
               </div>
             ))}
           </div>
-        </div>
-
-        {/* Decorative Central Thread Rule */}
-        <div className="characters-divider-rule" aria-hidden="true">
-          <span className="thread-dash" />
-          <span className="thread-center-gem">✦ &nbsp; CULTURUM LIVING HERITAGE PARADE &nbsp; ✦</span>
-          <span className="thread-dash" />
         </div>
 
         {/* Row 2: 5 Characters (Scrolls Right - Opposite Direction) */}
@@ -213,22 +152,7 @@ export default function ProcessSection() {
             }}
           >
             {BOTTOM_ROW_CHARACTERS.map((char) => (
-              <div
-                key={char.id}
-                className="character-figure-wrap"
-                onMouseEnter={() => {
-                  sounds.playTap();
-                  setActiveTooltip(char);
-                }}
-                onMouseLeave={() => setActiveTooltip(null)}
-                onClick={() => {
-                  sounds.playClick();
-                  setActiveTooltip(char);
-                }}
-                role="button"
-                tabIndex={0}
-                aria-label={char.name}
-              >
+              <div key={char.id} className="character-figure-wrap">
                 <img
                   src={char.image}
                   alt={char.name}
@@ -236,27 +160,11 @@ export default function ProcessSection() {
                   loading="lazy"
                   draggable={false}
                 />
-                <div className="character-label-pill">
-                  <span className="pill-name">{char.name}</span>
-                  <span className="pill-telugu">{char.telugu}</span>
-                </div>
               </div>
             ))}
           </div>
         </div>
       </div>
-
-      {/* Interactive Tooltip Card at Bottom of Stage */}
-      {activeTooltip && (
-        <div className="character-active-card-bar" role="status">
-          <div className="active-card-inner">
-            <span className="active-badge">ACTIVE CHARACTER FOCUS</span>
-            <h3 className="active-name">{activeTooltip.name}</h3>
-            <p className="active-telugu">{activeTooltip.telugu}</p>
-            <span className="active-tradition">Tradition: {activeTooltip.artTradition}</span>
-          </div>
-        </div>
-      )}
     </section>
   );
 }
